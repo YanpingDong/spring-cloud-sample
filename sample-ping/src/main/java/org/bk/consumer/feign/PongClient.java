@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@FeignClient("samplepong")
+@FeignClient(value="samplepong"/*, url="http://localhost:8082"*/)
 public interface PongClient {
 
     @RequestMapping(method = RequestMethod.POST, value = "/message",

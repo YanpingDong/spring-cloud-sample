@@ -5,7 +5,7 @@ spring:
   cloud:
     config:
       discovery:
-        enabled: true
+        enabled: false
         serviceId: SAMPLE-CONFIG
 
 eureka:

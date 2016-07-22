@@ -20,6 +20,14 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter</artifactId>
+        </dependency>
+        <dependency>
+		   <groupId>org.springframework.cloud</groupId>
+		   <artifactId>spring-cloud-starter-feign</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
         <dependency>
@@ -33,11 +41,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator</artifactId>
-        </dependency>
+        </dependency> 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-messaging</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
+        
+        
     </dependencies>
     <build>
         <plugins>
