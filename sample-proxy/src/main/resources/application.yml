@@ -1,0 +1,8 @@
+server:
+  port: 7443
+
+zuul:
+  routes:
+    user:
+      path: /user/**
+      url: http://localhost:8080/dispatch
