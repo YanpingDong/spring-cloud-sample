@@ -2,7 +2,6 @@
 server:
   port: 8989
 
-
 turbine:
   aggregator:
-    clusterConfig: sample-pong
+    clusterConfig: SAMPLE-PONG
