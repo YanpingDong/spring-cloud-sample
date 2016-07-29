@@ -20,7 +20,7 @@ spring:
     config:
       server:
         native:
-          searchLocations: file:///D:/DevelopmentEnv/eclipse/workspace/spring-cloud/sample-config/src/main/resources/config
+          searchLocations: file:///D:/DevelopmentEnv/keplerWorkspace/spring-cloud-sample/sample-config/src/main/resources/config
           
 endpoints:
   restart:

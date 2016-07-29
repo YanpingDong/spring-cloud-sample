@@ -2,11 +2,6 @@
 spring:
   application:
     name: sample-monitor
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        serviceId: SAMPLE-CONFIG
 
 eureka:
   instance:
@@ -18,4 +13,4 @@ eureka:
 turbine:
   aggregator:
     clusterConfig: SAMPLE-PONG
-  appConfig: SAMPLE-PONG
+#  appConfig: SAMPLE-PONG

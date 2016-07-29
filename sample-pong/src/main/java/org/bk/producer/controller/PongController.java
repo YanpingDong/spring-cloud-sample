@@ -21,7 +21,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 public class PongController {
 
 	
-    @Value("${reply.message:hollo}")
+    @Value("${reply.message:hello}")
     private String message;
 
 
@@ -40,8 +40,7 @@ public class PongController {
      */
     @HystrixCommand(fallbackMethod = "fallBackCall",
     		        commandProperties = { 
-    		            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500"),
-    		            @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE")},
+    		            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")},
 			        threadPoolProperties = {
                         @HystrixProperty(name = "coreSize", value = "30"),
                         @HystrixProperty(name = "maxQueueSize", value = "101"),
@@ -66,7 +65,7 @@ public class PongController {
                 @HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "12"),
                 @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "1440") })
     @RequestMapping(value = "/message", method = RequestMethod.GET)
-    public MessageAcknowledgement getMessage(){
+    public MessageAcknowledgement getMessageAcknowledgement(){
     	Random ra =new Random();
     	int failureSeeds = ra.nextInt(2);
     	if(failureSeeds == 1)
