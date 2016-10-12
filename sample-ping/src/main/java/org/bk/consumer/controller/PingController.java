@@ -18,6 +18,7 @@ public class PingController {
 
     @RequestMapping("/dispatch")
     public MessageAcknowledgement sendMessage(@RequestBody Message message) {
-        return this.pongClient.sendMessage(message);
+    	MessageAcknowledgement result = this.pongClient.sendMessage(message);
+        return result;
     }
 }

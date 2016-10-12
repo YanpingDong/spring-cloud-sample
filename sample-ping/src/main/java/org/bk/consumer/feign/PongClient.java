@@ -4,12 +4,13 @@ import org.bk.consumer.domain.Message;
 import org.bk.consumer.domain.MessageAcknowledgement;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@FeignClient(value="samplepong"/*, url="http://localhost:8082"*/)
+@FeignClient(value="sample-pong"/*, url="http://localhost:8082"*/)
 public interface PongClient {
 
     @RequestMapping(method = RequestMethod.POST, value = "/message",

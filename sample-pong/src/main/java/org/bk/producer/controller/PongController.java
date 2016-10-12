@@ -26,14 +26,25 @@ public class PongController {
 
 
     public Resource<MessageAcknowledgement> fallBackCall(Message message) {
-    	Resource<MessageAcknowledgement> fallback =new Resource<>( new MessageAcknowledgement(message.getId(), message.getPayload(), "FAILED SERVICE CALL! - FALLING BACK"));
+    	Resource<MessageAcknowledgement> fallback;
+    	Random ra =new Random();
+    	int failureSeeds = ra.nextInt(2);
+    	if(failureSeeds == 1)
+    	{
+    		fallback =new Resource<>( new MessageAcknowledgement(message.getId(), message.getPayload(), "SUCCESS"));
+    	}
+    	else
+    	{
+    		fallback =new Resource<>( new MessageAcknowledgement(message.getId(), message.getPayload(), "FAILED SERVICE CALL! - FALLING BACK"));
+    	}
+    	
         return fallback;
     }
     
-    public MessageAcknowledgement fallBackCall() {
+    /*public MessageAcknowledgement fallBackCall() {
     	MessageAcknowledgement fallback = new MessageAcknowledgement("fakeId", "fakePayload", "FAILED SERVICE CALL! - FALLING BACK");
         return fallback;
-    }
+    }*/
     
     /*
      * See more Hystrix details refer https://github.com/Netflix/Hystrix/tree/master/hystrix-contrib/hystrix-javanica#configuration
@@ -50,10 +61,12 @@ public class PongController {
                         @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "1440") })
     @RequestMapping(value = "/message", method = RequestMethod.POST)
     public Resource<MessageAcknowledgement> pongMessage(@RequestBody Message input) {
+    	
+    	//return new MessageAcknowledgement("Id", message, "SUCCESS");
     	throw new RuntimeException();
     }
 
-    @HystrixCommand(fallbackMethod = "fallBackCall",
+    /*@HystrixCommand(fallbackMethod = "fallBackCall",
 	        commandProperties = { 
 	            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500"),
 	            @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE")},
@@ -77,5 +90,5 @@ public class PongController {
     		throw new RuntimeException();
     	}
     	
-    }
+    }*/
 }
