@@ -1,4 +1,14 @@
 ---
+# If you prefer to use DiscoveryClient to locate the Config Server, 
+# you can do that by setting spring.cloud.config.discovery.enabled=true (default "false").
+# The default service id is "configserver" but you can change that on the client with spring.cloud.config.discovery.serviceId 
+# (and on the server in the usual way for a service, e.g. by setting spring.application.name).
+# In some cases, it may be desirable to fail startup of a service if it cannot connect to the Config Server. 
+# If this is the desired behavior, set the bootstrap configuration property spring.cloud.config.failFast=true
+# and the client will halt with an Exception., and then you need to add spring-retry and spring-boot-starter-aop to your classpath. 
+# The default behaviour is to retry 6 times with an initial backoff interval of 1000ms 
+# and an exponential multiplier of 1.1 for subsequent backoffs.
+# You can configure these properties (and others) using spring.cloud.config.retry.* configuration properties.
 spring:
   application:
     name: sample-pong
@@ -9,7 +19,9 @@ spring:
       discovery:
         enabled: true
         serviceId: SAMPLE-CONFIG
+      failFast=true
 
+# configure discovery service      
 eureka:
   instance:
     nonSecurePort: ${server.port:8082}
