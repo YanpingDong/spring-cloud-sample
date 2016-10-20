@@ -1,13 +1,13 @@
 ---
 # git backend repository
-#spring.cloud.config.server.git.uri: https://github.com/liaokailin/config-repo
+# spring.cloud.config.server.git.uri: https://github.com/liaokailin/config-repo
 
 # loads the config files from the local classpath or file system 
 # (any static URL you want to point to with "spring.cloud.config.server.native.searchLocations")
 # To use the native profile just launch the Config Server with "spring.profiles.active=native"
-# local classpath
+# local classpath setting:
 # spring.cloud.config.server.native.searchLocations=classpath:/config 
-# File System Backend
+# File System Backend setting:
 # NOTE : absolute paths in Windows require an extra "/", e.g. file:///${user.home}/config
 spring:
   application:
@@ -18,7 +18,12 @@ spring:
     config:
       server:
         native:
-          searchLocations: file:///D:/DevelopmentEnv/keplerWorkspace/spring-cloud-sample/sample-config/src/main/resources/config
+          #searchLocations: file:///D:\DevelopmentEnv\eclipse\workspace\spring-cloud\sample-config\src\main\resources\config\
+          searchLocations: classpath:/config
+# spring-cloud-bus-amqp config
+#  rabbitmq:
+#    host: localhost
+#    port: 5672  
           
 endpoints:
   restart:
@@ -30,4 +35,4 @@ eureka:
     nonSecurePort: ${server.port:8888}
   client:
     serviceUrl:
-      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/    
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/

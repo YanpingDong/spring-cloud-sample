@@ -19,8 +19,14 @@ spring:
       discovery:
         enabled: true
         serviceId: SAMPLE-CONFIG
-      failFast=true
-
+      #failFast: true
+   
+# spring-cloud-bus-amqp config
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    virtual-host: /
+    
 # configure discovery service      
 eureka:
   instance:

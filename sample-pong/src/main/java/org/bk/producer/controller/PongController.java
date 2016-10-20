@@ -31,7 +31,7 @@ public class PongController {
     	int failureSeeds = ra.nextInt(2);
     	if(failureSeeds == 1)
     	{
-    		fallback =new Resource<>( new MessageAcknowledgement(message.getId(), message.getPayload(), "SUCCESS"));
+    		fallback =new Resource<>( new MessageAcknowledgement(message.getId(), message.getPayload(), "SUCCESS: " + this.message));
     	}
     	else
     	{
