@@ -18,13 +18,17 @@ spring:
     config:
       server:
         native:
-          #searchLocations: file:///D:\DevelopmentEnv\eclipse\workspace\spring-cloud\sample-config\src\main\resources\config\
-          searchLocations: classpath:/config
+          searchLocations: file:///D:\DevelopmentEnv\eclipse\workspace\spring-cloud\sample-config\src\main\resources\config
+          #searchLocations: classpath:/config
+    bus:
+      trace:
+        enabled: true
+ 
 # spring-cloud-bus-amqp config
-#  rabbitmq:
-#    host: localhost
-#    port: 5672  
-          
+  rabbitmq:
+    host: localhost
+    port: 5672  
+
 endpoints:
   restart:
     enabled: true
