@@ -1,7 +1,7 @@
 ---
 spring:
   application:
-    name: sample-monitor
+    name: sample-turbine
 
 eureka:
   instance:
@@ -12,5 +12,7 @@ eureka:
       
 turbine:
   aggregator:
-    clusterConfig: SAMPLE-PONG
-#  appConfig: SAMPLE-PONG
+    clusterConfig: sample
+#  instanceUrlSuffix: 8080/configcenter-web/hystrix.stream
+  appConfig: sample-pong
+  clusterNameExpression: metadata['cluster']

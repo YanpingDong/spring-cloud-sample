@@ -25,14 +25,17 @@ spring:
       enabled: true
    
 # spring-cloud-bus-amqp config
-  rabbitmq:
-    host: localhost
-    port: 5672
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
     
 # configure discovery service      
 eureka:
   instance:
     nonSecurePort: ${server.port:8082}
+    metadata-map:
+      cluster: sample
+  
   client:
     serviceUrl:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/

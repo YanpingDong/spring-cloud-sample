@@ -12,10 +12,14 @@ spring:
 
 eureka:
   instance:
-    nonSecurePort: ${server.port:8083}
+    hostname: www.dyp.com
+    nonSecurePort: ${server.port:8082}
+    metadata-map:
+      cluster: sample
   client:
     serviceUrl:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+
 
 # enable restart interface
 endpoints:
