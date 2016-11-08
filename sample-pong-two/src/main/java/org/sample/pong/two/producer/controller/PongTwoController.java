@@ -1,5 +1,7 @@
 package org.sample.pong.two.producer.controller;
 
+import io.swagger.annotations.ApiOperation;
+
 import java.util.Random;
 
 import org.sample.pong.two.producer.domain.Message;
@@ -23,6 +25,7 @@ public class PongTwoController {
     	Message fallback = new Message("fakeId",  "FAILED SERVICE CALL! - FALLING BACK");
         return fallback;
     }
+    
     
     @HystrixCommand(fallbackMethod = "fallBackCall",
 	        commandProperties = { 
